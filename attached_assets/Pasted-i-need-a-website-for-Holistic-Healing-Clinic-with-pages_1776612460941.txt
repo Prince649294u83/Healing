@@ -1,0 +1,80 @@
+i need a website for Holistic Healing Clinic with pages Home page , about page , contact page , and services page .
+
+use color theme bg color is 
+#e5e7dd
+text color is 
+#152114
+accent colors are 
+#183924 & 
+#d75729
+
+use this font :- <style>
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+</style>
+
+
+in service page i have 3 sections 
+1. healing services :-
+Akashick Reading 
+Past life Therapy 
+Vastu reading
+Black Magic Removal
+Reiki healing 
+Tibetan Healing
+karmic Healing this is for Healing page
+
+2. cousilling :-
+Relationship councling
+Children councling 
+Stress and Anxiety councling 
+Therapy sessions
+
+3.Srividya Healing class
+Advance Healing classes
+Kriya babaji  class
+
+
+in the about us page this is the data i want :-
+
+
+
+With over 15 years of expertise, Dr. Anushka Manoharlal leads a renowned global healing center that specializes in transformative holistic services.
+
+ 
+
+Dr. M Anushka Manoharlal has been presented with the “Abdul Kalam Award 2016” for her work in healing old age patients at the Mother Teresa NGO in Chennai for various ailments such as diabetes, arthritis, breathing problems etc.
+
+She has been healing many people across various age groups suffering from Stress, Anxiety, Fear and Depression. Many have undergone treatments for Crystal ailments. Many people have assisted in bettering the health problems relating to PCOS, AHA and Child birth. Healing services are being provided for financial and property related matters as well.
+
+ 
+
+ 
+
+Mission and Vision
+
+ Empowering Transformative Healing
+
+To provide top-notch holistic and spiritual healing services that empower individuals to find balance, harmony, and inner peace.
+ 
+
+Inspiring Well-being and Growth
+
+To be a leading global center for holistic healing, fostering emotional and spiritual growth for individuals seeking transformative change.
+
+
+
+----- 
+
+i need a awards section to be included in the about us page 
+
+
+
+i need animations throughout the website which is optimized for desktop and mobile devices use reduced motion from framer motion for the animations 
+
+i need hero sections in all the pages , add testimonials and faqs too 
+
+i need the website to look premium and elegant use your maximum capabilities and creativity to create this website , use your best ui ux designer and developer skills to complete this task 
+
+use embla caraousal if required , use unsplash and pexels for images and videos if required 
+
+make it look very expensive looking website
