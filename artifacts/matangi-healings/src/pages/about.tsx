@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { Link } from "wouter";
 import { motion, useReducedMotion, useInView } from "framer-motion";
+import drAnushkaPhoto from "@assets/image_1776614460712.png";
 import { Award, Heart, Globe, Star, Quote } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import { useCallback, useEffect } from "react";
@@ -203,9 +204,9 @@ export default function About() {
             <AnimatedItem>
               <div className="relative">
                 <img
-                  src="https://images.unsplash.com/photo-1611072965083-e3ee28bf18ef?w=700&q=80"
-                  alt="Dr. Anushka healing session"
-                  className="rounded-2xl w-full object-cover aspect-[3/4] shadow-lg"
+                  src={drAnushkaPhoto}
+                  alt="Dr. Anushka Manoharlal"
+                  className="rounded-2xl w-full object-cover aspect-[3/4] shadow-lg object-top"
                 />
                 <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-border" />
                 <div className="absolute -bottom-5 -left-5 bg-card border border-border rounded-2xl p-5 shadow-lg">
