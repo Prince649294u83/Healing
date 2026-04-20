@@ -8,9 +8,11 @@ import imgHeroLotus from "../assets/home/hero_lotus.jpg";
 import imgHeroHealing from "../assets/home/home_hero_new.jpg";
 import heroVideo from "../assets/home/hero_video.mp4";
 import imgSingingBowl from "../assets/home/singing_bowl.jpg";
-import imgMeditation from "../assets/home/meditation.jpg";
-import imgHoldingHands from "../assets/home/holding_hands.jpg";
-import imgCrystal from "../assets/home/crystal.jpg";
+
+// Service images — shared with services.tsx for consistency
+import imgAkashic from "../assets/services/akashic_reading_1776618231728.png";
+import imgRelCounselling from "../assets/services/relationship_counselling.png";
+import imgSrividya from "../assets/services/srividya_class.jpg";
 
 const fadeUp = (reducedMotion: boolean) => ({
   hidden: { opacity: 0, y: reducedMotion ? 0 : 30 },
@@ -272,19 +274,19 @@ const featuredServices = [
   {
     title: "Healing Services",
     description: "Akashic Reading, Past Life Therapy, Reiki, Tibetan & Karmic Healing for deep transformation.",
-    image: imgMeditation,
+    image: imgAkashic,
     href: "/services",
   },
   {
     title: "Counselling",
     description: "Relationship, Children, Stress & Anxiety counselling with compassionate personalized guidance.",
-    image: imgHoldingHands,
+    image: imgRelCounselling,
     href: "/services",
   },
   {
     title: "Srividya Classes",
     description: "Ancient healing wisdom — Srividya, Advanced Healing & Kriya Babaji classes for practitioners.",
-    image: imgCrystal,
+    image: imgSrividya,
     href: "/services",
   },
 ];
