@@ -3,9 +3,25 @@ import { Link } from "wouter";
 import { motion, useReducedMotion, useInView } from "framer-motion";
 import { Sparkles, Heart, BookOpen, ChevronRight } from "lucide-react";
 
+import imgAkashic from "../assets/services/akashic_reading_1776618231728.png";
+import imgPastLife from "../assets/services/past_life_1776618287281.png";
+import imgVastu from "../assets/services/vastu_reading_1776618306406.png";
+import imgBlackMagic from "../assets/services/black_magic_removal_1776618321162.png";
+import imgReiki from "../assets/services/reiki_healing_1776618336255.png";
+import imgTibetan from "../assets/services/tibetan_healing_1776618352968.png";
+import imgKarmic from "../assets/services/karmic_healing.jpg";
+import imgRelCounselling from "../assets/services/relationship_counselling.png";
+import imgChildCounselling from "../assets/services/children_counselling.jpg";
+import imgStressCounselling from "../assets/services/stress_counselling.jpg";
+import imgTherapy from "../assets/services/therapy_sessions.jpg";
+import imgSrividya from "../assets/services/srividya_class.jpg";
+import imgAdvance from "../assets/services/advance_healing.jpg";
+import imgKriya from "../assets/services/kriya_babaji.jpg";
+import imgServicesHero from "../assets/services/services_hero.jpg";
+
 const fadeUp = (reducedMotion: boolean) => ({
   hidden: { opacity: 0, y: reducedMotion ? 0 : 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } },
 });
 const stagger = { visible: { transition: { staggerChildren: 0.1 } } };
 
@@ -27,37 +43,37 @@ const healingServices = [
   {
     title: "Akashic Reading",
     description: "Access the Akashic Records — the cosmic library of your soul's journey — to gain profound clarity on your life's purpose, recurring patterns, and karmic lessons.",
-    image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=500&q=80",
+    image: imgAkashic,
   },
   {
     title: "Past Life Therapy",
     description: "Explore previous lifetimes to understand deep-seated fears, relationships, and patterns that shape your current existence. Experience liberation through understanding.",
-    image: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=500&q=80",
+    image: imgPastLife,
   },
   {
     title: "Vastu Reading",
     description: "Harmonize your living and working spaces with ancient Vastu Shastra principles. Transform your environment to support health, prosperity, and relationships.",
-    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=500&q=80",
+    image: imgVastu,
   },
   {
     title: "Black Magic Removal",
     description: "Identify, cleanse, and remove negative energies, curses, or psychic attacks with powerful ancient protection rituals. Restore your aura and life force.",
-    image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=500&q=80",
+    image: imgBlackMagic,
   },
   {
     title: "Reiki Healing",
     description: "Channel universal life force energy to promote deep relaxation, accelerate natural healing, and restore balance across your physical and energetic bodies.",
-    image: "https://images.unsplash.com/photo-1536623975707-c4b3b2af565d?w=500&q=80",
+    image: imgReiki,
   },
   {
     title: "Tibetan Healing",
     description: "Ancient Tibetan healing techniques using singing bowls, mantras, and energy work to bring harmony to mind, body, and spirit through resonance and vibration.",
-    image: "https://images.unsplash.com/photo-1600618528240-fb9fc964b853?w=500&q=80",
+    image: imgTibetan,
   },
   {
     title: "Karmic Healing",
     description: "Identify and resolve karmic debts, ancestral patterns, and soul contracts that may be limiting your current life. Create a lighter, freer path forward.",
-    image: "https://images.unsplash.com/photo-1611072965083-e3ee28bf18ef?w=500&q=80",
+    image: imgKarmic,
   },
 ];
 
@@ -65,22 +81,22 @@ const counsellingServices = [
   {
     title: "Relationship Counselling",
     description: "Navigate relationship challenges with compassionate, energy-aware guidance that addresses both the emotional and spiritual dimensions of your connections.",
-    image: "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=500&q=80",
+    image: imgRelCounselling,
   },
   {
     title: "Children Counselling",
     description: "Gentle, effective support for children facing stress, anxiety, behavioral challenges, or learning difficulties — using holistic, child-friendly approaches.",
-    image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=500&q=80",
+    image: imgChildCounselling,
   },
   {
     title: "Stress & Anxiety Counselling",
     description: "Holistic strategies combining energy healing, mindfulness, and counselling to address the root causes of stress and anxiety for lasting relief.",
-    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=500&q=80",
+    image: imgStressCounselling,
   },
   {
     title: "Therapy Sessions",
     description: "Personalized therapeutic sessions integrating multiple healing modalities to support your unique healing journey — body, mind, and spirit.",
-    image: "https://images.unsplash.com/photo-1536623975707-c4b3b2af565d?w=500&q=80",
+    image: imgTherapy,
   },
 ];
 
@@ -88,17 +104,17 @@ const srividyaServices = [
   {
     title: "Srividya Healing Class",
     description: "Learn the profound ancient science of Srividya — a sacred path of healing and spiritual awakening that empowers you to become a channel of divine healing energy.",
-    image: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=500&q=80",
+    image: imgSrividya,
   },
   {
     title: "Advance Healing Classes",
     description: "For established practitioners ready to deepen their mastery. Advanced techniques, deeper dimensions of energy work, and specialized healing applications.",
-    image: "https://images.unsplash.com/photo-1600618528240-fb9fc964b853?w=500&q=80",
+    image: imgAdvance,
   },
   {
     title: "Kriya Babaji Class",
     description: "Learn the sacred Kriya yoga techniques as taught in the lineage of Mahavatar Babaji — powerful practices for spiritual evolution and healing others.",
-    image: "https://images.unsplash.com/photo-1611072965083-e3ee28bf18ef?w=500&q=80",
+    image: imgKriya,
   },
 ];
 
@@ -214,13 +230,13 @@ export default function Services() {
     <div className="bg-background">
       {/* HERO */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=1600&q=80')" }} />
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${imgServicesHero})` }} />
         <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/75 to-primary/50" />
         <div className="relative z-10 text-center px-6 max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: reducedMotion ? 0 : 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
           >
             <p className="text-secondary font-medium tracking-[0.3em] uppercase text-sm mb-4">Healing Pathways</p>
             <h1 className="font-serif text-4xl md:text-6xl font-light text-white leading-tight mb-4">
@@ -306,7 +322,7 @@ export default function Services() {
 
       {/* CTA */}
       <section className="py-24 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center opacity-10" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1200&q=80')" }} />
+        <div className="absolute inset-0 bg-cover bg-center opacity-10" style={{ backgroundImage: `url(${imgTherapy})` }} />
         <div className="relative z-10 max-w-3xl mx-auto text-center">
           <AnimatedSection>
             <AnimatedItem>

@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { Link } from "wouter";
 import { motion, useReducedMotion, useInView } from "framer-motion";
 import drAnushkaPhoto from "@assets/image_1776614460712.png";
+import imgHeroAbout from "../assets/home/hero_about.jpg";
 import { Award, Heart, Globe, Star, Quote } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import { useCallback, useEffect } from "react";
@@ -9,7 +10,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const fadeUp = (reducedMotion: boolean) => ({
   hidden: { opacity: 0, y: reducedMotion ? 0 : 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } },
 });
 const stagger = { visible: { transition: { staggerChildren: 0.12 } } };
 
@@ -178,13 +179,13 @@ export default function About() {
     <div className="bg-background">
       {/* HERO */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600618528240-fb9fc964b853?w=1600&q=80')" }} />
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${imgHeroAbout})` }} />
         <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/75 to-primary/50" />
         <div className="relative z-10 text-center px-6 max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: reducedMotion ? 0 : 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
           >
             <p className="text-secondary font-medium tracking-[0.3em] uppercase text-sm mb-4">Our Story</p>
             <h1 className="font-serif text-4xl md:text-6xl font-light text-white leading-tight mb-4">

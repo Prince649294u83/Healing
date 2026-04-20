@@ -2,11 +2,19 @@ import { useState, useCallback, useEffect, useRef } from "react";
 import { Link } from "wouter";
 import useEmblaCarousel from "embla-carousel-react";
 import { motion, useReducedMotion, useInView } from "framer-motion";
-import { ChevronLeft, ChevronRight, Quote, Star, Award, Globe, Clock, Leaf } from "lucide-react";
+import { ChevronLeft, ChevronRight, Quote, Star, Award, Globe, Clock, Leaf, Target, Crown, Sparkles, Heart, Sun, Moon, Feather, Wind } from "lucide-react";
+
+import imgHeroLotus from "../assets/home/hero_lotus.jpg";
+import imgHeroHealing from "../assets/home/home_hero_new.jpg";
+import heroVideo from "../assets/home/hero_video.mp4";
+import imgSingingBowl from "../assets/home/singing_bowl.jpg";
+import imgMeditation from "../assets/home/meditation.jpg";
+import imgHoldingHands from "../assets/home/holding_hands.jpg";
+import imgCrystal from "../assets/home/crystal.jpg";
 
 const fadeUp = (reducedMotion: boolean) => ({
   hidden: { opacity: 0, y: reducedMotion ? 0 : 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } },
 });
 
 const stagger = {
@@ -95,30 +103,188 @@ const faqs = [
   },
 ];
 
-const stats = [
-  { icon: Clock, value: "15+", label: "Years of Expertise" },
-  { icon: Award, value: "2016", label: "Abdul Kalam Award" },
-  { icon: Globe, value: "Pan India", label: "Reach & Beyond" },
-  { icon: Leaf, value: "2005", label: "Established Since" },
+const HEALING_PILLARS = [
+  { name: "Holistic Health", icon: Sun },
+  { name: "Energy Healing", icon: Sparkles },
+  { name: "Vedic Wisdom", icon: Moon },
+  { name: "Karmic Balance", icon: Feather },
+  { name: "Inner Peace", icon: Wind },
+  { name: "Spiritual Growth", icon: Heart },
 ];
+
+function StatItem({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="flex flex-col items-center justify-center transition-transform hover:-translate-y-1 cursor-default">
+      <span className="text-xl font-bold text-white sm:text-2xl">{value}</span>
+      <span className="text-[10px] uppercase tracking-wider text-white/60 font-medium sm:text-xs">{label}</span>
+    </div>
+  );
+}
+
+function ImpactSection() {
+  const reducedMotion = useReducedMotion() ?? false;
+  return (
+    <div className="relative w-full bg-primary text-white overflow-hidden py-24 lg:py-32">
+      <style>{`
+        @keyframes marquee {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+          animation: marquee 40s linear infinite;
+        }
+      `}</style>
+      
+      {/* Background glow effects */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute -top-[20%] -right-[10%] w-[50%] h-[50%] rounded-full bg-secondary/20 blur-[120px]" />
+        <div className="absolute -bottom-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-white/5 blur-[120px]" />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-12 items-center">
+          
+          {/* --- LEFT COLUMN --- */}
+          <div className="lg:col-span-7 flex flex-col justify-center space-y-8">
+            <motion.div
+              initial={{ opacity: 0, y: reducedMotion ? 0 : 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 backdrop-blur-md transition-colors hover:bg-white/20 mb-6">
+                <span className="text-xs font-medium uppercase tracking-widest text-white flex items-center gap-2">
+                  Recognized Excellence
+                  <Star className="w-3.5 h-3.5 text-secondary fill-secondary" />
+                </span>
+              </div>
+
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light font-serif tracking-tight leading-[1.1] mb-6">
+                Transforming Lives Through<br />
+                <span className="text-secondary font-medium italic">
+                  Profound Healing
+                </span>
+              </h2>
+
+              <p className="max-w-xl text-lg text-white/80 leading-relaxed">
+                For over 15 years, Dr. Anushka has guided thousands toward inner peace, physical well-being, and spiritual awakening. Her holistic approach bridges ancient Vedic sciences with modern therapeutic practices.
+              </p>
+            </motion.div>
+          </div>
+
+          {/* --- RIGHT COLUMN --- */}
+          <div className="lg:col-span-5 space-y-6">
+            <motion.div
+              initial={{ opacity: 0, scale: reducedMotion ? 1 : 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              className="relative overflow-hidden rounded-3xl border border-white/20 bg-white/10 p-8 backdrop-blur-xl shadow-2xl"
+            >
+              <div className="relative z-10">
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-secondary/20 ring-1 ring-secondary/40 text-secondary">
+                    <Heart className="h-7 w-7" />
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold tracking-tight text-white">15,000+</div>
+                    <div className="text-sm text-white/80">Lives Transformed</div>
+                  </div>
+                </div>
+
+                <div className="space-y-3 mb-8">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-white/80">Healing Success Rate</span>
+                    <span className="text-white font-medium">98%</span>
+                  </div>
+                  <div className="h-2 w-full overflow-hidden rounded-full bg-black/20">
+                    <div className="h-full w-[98%] rounded-full bg-gradient-to-r from-secondary/50 to-secondary" />
+                  </div>
+                </div>
+
+                <div className="h-px w-full bg-white/10 mb-6" />
+
+                <div className="grid grid-cols-3 gap-4 text-center">
+                  <StatItem value="15+" label="Years" />
+                  <div className="w-px h-full bg-white/10 mx-auto" />
+                  <StatItem value="Pan India" label="Reach" />
+                  <div className="w-px h-full bg-white/10 mx-auto" />
+                  <StatItem value="100%" label="Dedication" />
+                </div>
+
+                <div className="mt-8 flex flex-wrap gap-2">
+                  <div className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[10px] font-medium tracking-wide text-white/90">
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
+                    </span>
+                    ACCEPTING APPOINTMENTS
+                  </div>
+                  <div className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[10px] font-medium tracking-wide text-white/90">
+                    <Crown className="w-3 h-3 text-secondary" />
+                    AWARD WINNER
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Marquee Card */}
+            <motion.div
+              initial={{ opacity: 0, y: reducedMotion ? 0 : 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.4 }}
+              className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 py-6 backdrop-blur-xl"
+            >
+              <h3 className="mb-4 px-8 text-xs font-medium uppercase tracking-wider text-white/60 text-center">Pillars of Our Practice</h3>
+              
+              <div 
+                className="relative flex overflow-hidden"
+                style={{
+                  maskImage: "linear-gradient(to right, transparent, black 20%, black 80%, transparent)",
+                  WebkitMaskImage: "linear-gradient(to right, transparent, black 20%, black 80%, transparent)"
+                }}
+              >
+                <div className="animate-marquee flex gap-12 whitespace-nowrap px-4">
+                  {[...HEALING_PILLARS, ...HEALING_PILLARS, ...HEALING_PILLARS].map((pillar, i) => (
+                    <div 
+                      key={i}
+                      className="flex items-center gap-2 opacity-70 transition-opacity hover:opacity-100 cursor-default"
+                    >
+                      <pillar.icon className="h-5 w-5 text-secondary" />
+                      <span className="text-sm font-medium text-white tracking-wide">
+                        {pillar.name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 const featuredServices = [
   {
     title: "Healing Services",
     description: "Akashic Reading, Past Life Therapy, Reiki, Tibetan & Karmic Healing for deep transformation.",
-    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80",
+    image: imgMeditation,
     href: "/services",
   },
   {
     title: "Counselling",
     description: "Relationship, Children, Stress & Anxiety counselling with compassionate personalized guidance.",
-    image: "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=600&q=80",
+    image: imgHoldingHands,
     href: "/services",
   },
   {
     title: "Srividya Classes",
     description: "Ancient healing wisdom — Srividya, Advanced Healing & Kriya Babaji classes for practitioners.",
-    image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80",
+    image: imgCrystal,
     href: "/services",
   },
 ];
@@ -230,9 +396,15 @@ export default function Home() {
     <div className="bg-background">
       {/* HERO */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=1600&q=80')" }}
+        {/* Video background */}
+        <video
+          className="absolute inset-0 w-full h-full object-cover"
+          src={heroVideo}
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster={imgHeroHealing}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-primary/85 via-primary/70 to-primary/50" />
         <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent" />
@@ -241,7 +413,7 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, y: reducedMotion ? 0 : 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
           >
             <p className="text-secondary font-medium tracking-[0.3em] uppercase text-sm mb-6">
               Holistic Healing Center
@@ -295,7 +467,7 @@ export default function Home() {
             <AnimatedItem>
               <div className="relative">
                 <img
-                  src="https://images.unsplash.com/photo-1536623975707-c4b3b2af565d?w=700&q=80"
+                  src={imgSingingBowl}
                   alt="Healing session"
                   className="rounded-2xl w-full object-cover aspect-[4/5] shadow-lg"
                 />
@@ -343,25 +515,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* STATS BAR */}
-      <section className="bg-primary py-16 px-6">
-        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
-          {stats.map((stat, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: reducedMotion ? 0 : 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1, duration: 0.6 }}
-              viewport={{ once: true }}
-              className="text-center"
-            >
-              <stat.icon className="text-secondary mx-auto mb-3" size={28} />
-              <p className="font-serif text-2xl md:text-3xl font-medium text-white">{stat.value}</p>
-              <p className="text-primary-foreground/70 text-sm mt-1">{stat.label}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+      {/* IMPACT SECTION */}
+      <ImpactSection />
 
       {/* FEATURED SERVICES */}
       <section className="py-24 md:py-32 px-6">
@@ -466,7 +621,7 @@ export default function Home() {
       <section className="py-24 md:py-32 px-6 relative overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-15"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=1200&q=80')" }}
+          style={{ backgroundImage: `url(${imgHeroHealing})` }}
         />
         <div className="relative z-10 max-w-3xl mx-auto text-center">
           <AnimatedSection>
