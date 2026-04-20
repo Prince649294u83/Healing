@@ -398,8 +398,17 @@ export default function Home() {
     <div className="bg-background">
       {/* HERO */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Video background */}
-        <video
+        {/* Full-bleed video — absolute coverage, no black bars */}
+        <motion.video
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5 }}
+          ref={(el) => {
+            if (!el) return;
+            // Robust seamless loop handler
+            el.onended = () => { el.currentTime = 0; el.play(); };
+            el.play().catch(() => {});
+          }}
           className="absolute inset-0 w-full h-full object-cover"
           src={heroVideo}
           autoPlay
@@ -408,9 +417,11 @@ export default function Home() {
           playsInline
           poster={imgHeroHealing}
         />
+        {/* Gradient overlays for text readability */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/85 via-primary/70 to-primary/50" />
         <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent" />
 
+        {/* Hero content */}
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: reducedMotion ? 0 : 50 }}
@@ -447,6 +458,7 @@ export default function Home() {
           </motion.div>
         </div>
 
+        {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
           <motion.div
             animate={{ y: reducedMotion ? 0 : [0, 8, 0] }}
